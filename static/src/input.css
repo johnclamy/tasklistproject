@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Point Tailwind to your Flask templates */
+@source "../../templates/**/*.html";
+
+/* Your custom CSS goes here */
+@theme {
+  --color-primary: #3b82f6;
+}
