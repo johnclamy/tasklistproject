@@ -8,5 +8,8 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.2.4",
     "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
