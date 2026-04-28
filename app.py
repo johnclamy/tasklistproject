@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, flash, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone
 import os
@@ -28,10 +28,30 @@ with app.app_context():
         db.create_all()
 
 
-@app.route('/')
+@app.get('/')
 def home():
     # tasks = Task.query.all()
     return render_template('index.html', tasks={})
+
+
+@app.post('/add')
+def add():
+    title = request.form.get('title', '').strip()
+    # description = request.form.get('description')
+
+    if not title:
+        flash("Please enter title for the task.")
+        return redirect(url_for('home'))
+    
+    new_task = Task()
+    new_task.title = title
+    # new_task.description = description
+
+    db.session.add(new_task)
+    db.session.commit()
+    flash("Task added successfully.")
+
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
