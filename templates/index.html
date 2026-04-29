@@ -48,7 +48,7 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ task.role }}</td>
 
                 <!-- col 5 of 6 -->
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ task.date_created }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ task.date_created.strftime("%Y %B %d, %H:%M") }}</td>
 
                 <!-- col 6 of 6 -->
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
