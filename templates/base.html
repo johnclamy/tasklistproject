@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='dist/output.css')}}">
-    <title>Task List App</title>
+    <title>Task List App | {% block title %}{% endblock %}</title>
+    {% endblock %}
 </head>
 <body>
-    <header>
+    <header>        
         <div class="fixed top-0 left-0 w-full z-50 bg-white border-b backdrop-blur-lg bg-opacity-80">
             <div class="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
                 <div class="relative flex h-16 justify-between">
@@ -27,12 +29,16 @@
         </div>
     </header>
     <div class="flex flex-col min-h-screen">
-        {% block content %}
-        {% endblock %}
+        <main class="grow pt-16">
+            {% block content %}
+            {% endblock %}
+        </main>
         <footer class="bg-gray-800 text-white py-4">
+            {% block footer %}
             <div class="container mx-auto text-center">
                 <p>&copy; 2026 Demo Website. All rights reserved.</p>
             </div>
+            {% endblock %}
         </footer>
     </div>
 </body>
